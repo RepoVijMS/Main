@@ -1,0 +1,93 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADFDemoVijay05"
+		},
+		"LinkedService_StorageDemoVijay_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LinkedService_StorageDemoVijay'"
+		},
+		"eventtrigger1_properties_Copy data Pipeline_parameters_SourcePath": {
+			"type": "string",
+			"defaultValue": "@triggerBody().filepath"
+		},
+		"eventtrigger1_properties_Copy data Pipeline_parameters_SourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"eventtrigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/c132a9c4-fb52-4f50-9850-9f706ad48cad/resourceGroups/TestEnv/providers/Microsoft.Storage/storageAccounts/storagedemovijay0501"
+		},
+		"ADLSGEN2managedpvtendpoint_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/c132a9c4-fb52-4f50-9850-9f706ad48cad/resourceGroups/TestEnv/providers/Microsoft.Storage/storageAccounts/storagedemovijay0501"
+		},
+		"ADLSGEN2managedpvtendpoint_properties_groupId": {
+			"type": "string",
+			"defaultValue": "dfs"
+		},
+		"ADLSGEN2managedpvtendpoint_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"storagedemovijay0501.dfs.core.windows.net"
+			]
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ADFDemoVijay05_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LinkedService_StorageDemoVijay_connectionString": {
+						"value": "[parameters('LinkedService_StorageDemoVijay_connectionString')]"
+					},
+					"ADLSGEN2managedpvtendpoint_properties_privateLinkResourceId": {
+						"value": "[parameters('ADLSGEN2managedpvtendpoint_properties_privateLinkResourceId')]"
+					},
+					"ADLSGEN2managedpvtendpoint_properties_groupId": {
+						"value": "[parameters('ADLSGEN2managedpvtendpoint_properties_groupId')]"
+					},
+					"ADLSGEN2managedpvtendpoint_properties_fqdns": {
+						"value": "[parameters('ADLSGEN2managedpvtendpoint_properties_fqdns')]"
+					},
+					"eventtrigger1_properties_Copy data Pipeline_parameters_SourcePath": {
+						"value": "[parameters('eventtrigger1_properties_Copy data Pipeline_parameters_SourcePath')]"
+					},
+					"eventtrigger1_properties_Copy data Pipeline_parameters_SourceFile": {
+						"value": "[parameters('eventtrigger1_properties_Copy data Pipeline_parameters_SourceFile')]"
+					},
+					"eventtrigger1_properties_typeProperties_scope": {
+						"value": "[parameters('eventtrigger1_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

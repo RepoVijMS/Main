@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADFDemoVijay05"
+		},
+		"LinkedService_StorageDemoVijay_connectionString": {
+			"value": ""
+		},
+		"eventtrigger1_properties_Copy data Pipeline_parameters_SourcePath": {
+			"value": "@triggerBody().filepath"
+		},
+		"eventtrigger1_properties_Copy data Pipeline_parameters_SourceFile": {
+			"value": "@triggerBody().fileName"
+		},
+		"eventtrigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/c132a9c4-fb52-4f50-9850-9f706ad48cad/resourceGroups/TestEnv/providers/Microsoft.Storage/storageAccounts/storagedemovijay0501"
+		},
+		"ADLSGEN2managedpvtendpoint_properties_privateLinkResourceId": {
+			"value": "/subscriptions/c132a9c4-fb52-4f50-9850-9f706ad48cad/resourceGroups/TestEnv/providers/Microsoft.Storage/storageAccounts/storagedemovijay0501"
+		},
+		"ADLSGEN2managedpvtendpoint_properties_groupId": {
+			"value": "dfs"
+		},
+		"ADLSGEN2managedpvtendpoint_properties_fqdns": {
+			"value": [
+				"storagedemovijay0501.dfs.core.windows.net"
+			]
+		}
+	}
+}
