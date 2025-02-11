@@ -1,0 +1,20 @@
+{
+	"name": "inputDataDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedService_StorageDemoVijay",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "data.txt",
+				"folderPath": "input",
+				"container": "adfdemo"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

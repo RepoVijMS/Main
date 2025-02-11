@@ -1,0 +1,9 @@
+{
+	"name": "ADFDemoVijay05",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fe72bfb2-85cf-4f39-a44d-e26a87b25177",
+		"tenantId": "16b3c013-d300-468d-ac64-7eda0820b6d3"
+	}
+}

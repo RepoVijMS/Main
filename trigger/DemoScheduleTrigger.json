@@ -1,0 +1,25 @@
+{
+	"name": "DemoScheduleTrigger",
+	"properties": {
+		"description": "Daily trigger",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Copy data Pipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-07-22T10:02:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"name": "ADLSGEN2managedpvtendpoint",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/c132a9c4-fb52-4f50-9850-9f706ad48cad/resourceGroups/TestEnv/providers/Microsoft.Storage/storageAccounts/storagedemovijay0501",
+		"groupId": "dfs",
+		"fqdns": [
+			"storagedemovijay0501.dfs.core.windows.net"
+		]
+	}
+}
